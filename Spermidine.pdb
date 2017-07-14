@@ -1,0 +1,33 @@
+HEADER
+TITLE       Required
+REMARK   1 File created by GaussView 5.0.9
+HETATM    1  N1  SPM A   1       5.280  -0.671   0.158
+HETATM    2  H1  SPM A   1       5.365  -0.706   1.159
+HETATM    3  H2  SPM A   1       5.952  -1.274  -0.282
+HETATM    4  C1  SPM A   1       3.899  -0.872  -0.314
+HETATM    5  H3  SPM A   1       3.915  -0.862  -1.397
+HETATM    6  H4  SPM A   1       3.467  -1.825  -0.002
+HETATM    7  C2  SPM A   1       3.008   0.275   0.182
+HETATM    8  H5  SPM A   1       3.443   1.205  -0.164
+HETATM    9  H6  SPM A   1       3.024   0.292   1.269
+HETATM   10  C3  SPM A   1       1.556   0.142  -0.309
+HETATM   11  H7  SPM A   1       1.524   0.135  -1.393
+HETATM   12  H8  SPM A   1       1.144  -0.801   0.035
+HETATM   13  C4  SPM A   1       0.676   1.302   0.180
+HETATM   14  H9  SPM A   1       1.095   2.231  -0.191
+HETATM   15  H10 SPM A   1       0.702   1.344   1.271
+HETATM   16  N2  SPM A   1      -0.696   1.188  -0.335
+HETATM   17  H11 SPM A   1      -1.135   2.084  -0.453
+HETATM   18  C5  SPM A   1      -1.575   0.247   0.371
+HETATM   19  H12 SPM A   1      -1.665   0.487   1.435
+HETATM   20  H13 SPM A   1      -1.141  -0.743   0.302
+HETATM   21  C6  SPM A   1      -2.967   0.230  -0.273
+HETATM   22  H14 SPM A   1      -3.421   1.214  -0.204
+HETATM   23  H15 SPM A   1      -2.867  -0.010  -1.324
+HETATM   24  C7  SPM A   1      -3.906  -0.784   0.395
+HETATM   25  H16 SPM A   1      -3.478  -1.778   0.309
+HETATM   26  H17 SPM A   1      -3.982  -0.563   1.456
+HETATM   27  N3  SPM A   1      -5.241  -0.757  -0.229
+HETATM   28  H18 SPM A   1      -5.507  -1.589  -0.715
+HETATM   29  H19 SPM A   1      -5.976  -0.389   0.341
+END
