@@ -63,11 +63,23 @@ simulation.reporters.append(app.StateDataReporter('SpermidineMove.log', output_s
     remainingTime=True, speed=True, totalSteps=((T_Steps+1)*sim_steps), separator='\t'))
 
 print('Running Temperature Variation...')
-                  
+progress_Interval = int(sim_Steps/4)   #sim_Steps divided by the number of emails for total simulation               
 for i in range(T_Steps):
     print("Set Temp: ", T_Start+i*T_Delta)
     integrator.setTemperature(T_Start+i*T_Delta)
-    simulation.step(sim_steps)
+    fromaddr = 'molecularmodelingtddft@gmail.com'
+    toaddr = 'molecularmodelingtddft@gmail.com'
+    username = 'molecularmodelingtddft'
+    password = 'NewtonF=ma'
+    for x in range(0, 4): #Must be in range of total email you want
+        simulation.step(progress_Interval)
+        server = smtplib.SMTP('smtp.gmail.com:587')
+        server.starttls()
+        server.login(username, password)
+        percentage = ((x + 1) * 25) # percentage (x+1) * the intervals you want your emails at
+        msg = (("Your Trypsin simulation is %s percent Comeplete") % percentage) # the message the emials sends
+        server.sendmail(fromaddr, toaddr, msg)
+        server.quit()
 print('Done!')
 End=datetime.now()
 print ('%s %s/%s/%s %s:%s:%s' %("Simulation ended at", End.month, End.day, End.year, End.hour, End.minute, End.second))
