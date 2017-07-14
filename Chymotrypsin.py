@@ -9,6 +9,7 @@ import simtk.openmm as mm
 from simtk import unit
 from sys import stdout
 from datetime import datetime
+import smtplip
 
 T_Start=300*unit.kelvin
 T_End=300*unit.kelvin
