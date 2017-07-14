@@ -1,0 +1,154 @@
+<ForceField>
+ <Info>
+  <Source>amoeba09.prm</Source>
+  <DateGenerated>2017-05-31</DateGenerated>
+  <Reference></Reference>
+ </Info>
+ <AtomTypes>
+#Nobles
+  <Type name="5301" class="5301" element="He" mass="4.003"/> <!--"Helium Atom He"-->
+  <Type name="5302" class="5302" element="Ne" mass="20.179"/> <!--"Neon Atom Ne"-->
+  <Type name="5303" class="5303" element="Ar" mass="39.948"/> <!--"Argon Atom Ar"-->
+  <Type name="5304" class="5304" element="Kr" mass="83.800"/> <!--"Krypton Atom Kr"-->
+  <Type name="5305" class="5305" element="Xe" mass="131.290"/> <!--"Xenon Atom Xe"-->
+#Cations
+  <Type name="5101" class="5101" element="LI" mass="6.941"/> <!--"Lithium Ion Li+"-->
+  <Type name="5102" class="5102" element="NA" mass="22.990"/> <!--"Sodium Ion Na+"-->
+  <Type name="5103" class="5103" element="K" mass="39.098"/> <!--"Potassium Ion K+"-->
+  <Type name="5104" class="5104" element="RB" mass="85.468"/> <!--"Rubidium Ion Rb+"-->
+  <Type name="5105" class="5105" element="CS" mass="132.905"/> <!--"Cesium Ion Cs+"-->
+  <Type name="5106" class="5106" element="MG" mass="24.305"/> <!--"Magnesium Ion Mg+2"-->
+  <Type name="5107" class="5107" element="CA" mass="40.078"/> <!--"Calcium Ion Ca+2"-->
+  <Type name="5108" class="5108" element="ZN" mass="65.390"/> <!--"Zinc Ion Zn+2"-->
+  <Type name="5109" class="5109" element="BE" mass="9.012"/> <!--"Beryllium Ion Be+2"-->
+#Anions
+  <Type name="5201" class="5201" element="F" mass="18.998"/> <!--"Fluoride Ion F-"-->
+  <Type name="5202" class="5202" element="Cl" mass="35.453"/> <!--"Chloride Ion Cl-"-->
+  <Type name="5203" class="5203" element="Br" mass="79.904"/> <!--"Bromide Ion Br-"-->
+  <Type name="5204" class="5204" element="I" mass="126.904"/> <!--"Iodide Ion I-"-->
+#Water
+  <Type name="5001" class="5001" element="O" mass="15.999"/> <!--"AMOEBA Water O"-->
+  <Type name="5002" class="5002" element="H" mass="1.008"/> <!--"AMOEBA Water H"-->
+ </AtomTypes>
+<Residues>
+  <Residue name="HOH">
+   <Atom name="H1" type="5002" />
+   <Atom name="H2" type="5002" />
+   <Atom name="O" type="5001" />
+   <Bond from="0" to="2" />
+   <Bond from="1" to="2" />
+  </Residue>
+  <Residue name="MG">
+   <Atom name="MG" type="5106"/>
+  </Residue>
+  <Residue name="BE">
+   <Atom name="BE" type="5109"/>
+  </Residue>
+  <Residue name="RB">
+   <Atom name="RB" type="5104"/>
+  </Residue>
+  <Residue name="CS">
+   <Atom name="CS" type="5105"/>
+  </Residue>
+  <Residue name="Cl">
+   <Atom name="Cl" type="5202"/>
+  </Residue>
+  <Residue name="K">
+   <Atom name="K" type="5103"/>
+  </Residue>
+  <Residue name="NA">
+   <Atom name="NA" type="5102"/>
+  </Residue>
+  <Residue name="ZN">
+   <Atom name="ZN" type="5108"/>
+  </Residue>
+  <Residue name="CA">
+   <Atom name="CA" type="5107"/>
+  </Residue>
+  <Residue name="LI">
+   <Atom name="LI" type="5101" />
+  </Residue>
+ </Residues>
+ <AmoebaBondForce bond-cubic="-25.5" bond-quartic="379.3125">
+  <Bond class1="5001" class2="5002" length="0.09572" k="232986.04"/>
+ </AmoebaBondForce>
+ <AmoebaAngleForce angle-cubic="-0.014" angle-quartic="5.6e-05" angle-pentic="-7e-07" angle-sextic="2.2e-08">
+    <Angle class1="5002" class2="5001" class3="5002" k="0.0620690891499" angle1="108.50"  />
+ </AmoebaAngleForce>
+ <AmoebaOutOfPlaneBendForce type="ALLINGER" opbend-cubic="-0.014" opbend-quartic="5.6e-05" opbend-pentic="-7e-07" opbend-sextic="2.2e-08">
+
+ </AmoebaOutOfPlaneBendForce>
+ <PeriodicTorsionForce>
+
+ </PeriodicTorsionForce>
+ <AmoebaPiTorsionForce piTorsionUnit="1.0">
+
+ </AmoebaPiTorsionForce>
+ <AmoebaStretchBendForce stretchBendUnit="1.0">
+
+</AmoebaStretchBendForce>
+ <AmoebaVdwForce type="BUFFERED-14-7" radiusrule="CUBIC-MEAN" radiustype="R-MIN" radiussize="DIAMETER" epsilonrule="HHG" vdw-13-scale="0.0" vdw-14-scale="1.0" vdw-15-scale="1.0" >
+  <Vdw class="5301" sigma="0.299" epsilon="0.033472" reduction="1.0" />
+  <Vdw class="5302" sigma="0.315" epsilon="0.305432" reduction="1.0" />
+  <Vdw class="5303" sigma="0.382" epsilon="1.08784" reduction="1.0" />
+  <Vdw class="5304" sigma="0.409" epsilon="1.502056" reduction="1.0" />
+  <Vdw class="5305" sigma="0.437" epsilon="2.083632" reduction="1.0" />
+  <Vdw class="5101" sigma="0.238" epsilon="0.33472" reduction="1.0" />
+  <Vdw class="5102" sigma="0.302" epsilon="1.08784" reduction="1.0" />
+  <Vdw class="5103" sigma="0.371" epsilon="1.4644" reduction="1.0" />
+  <Vdw class="5104" sigma="0.414" epsilon="1.84096" reduction="1.0" />
+  <Vdw class="5105" sigma="0.437" epsilon="2.21752" reduction="1.0" />
+  <Vdw class="5106" sigma="0.294" epsilon="1.2552" reduction="1.0" />
+  <Vdw class="5107" sigma="0.363" epsilon="1.4644" reduction="1.0" />
+  <Vdw class="5108" sigma="0.268" epsilon="0.928848" reduction="1.0" />
+  <Vdw class="5201" sigma="0.34" epsilon="1.046" reduction="1.0" />
+  <Vdw class="5202" sigma="0.413" epsilon="1.42256" reduction="1.0" />
+  <Vdw class="5203" sigma="0.438" epsilon="1.79912" reduction="1.0" />
+  <Vdw class="5204" sigma="0.466" epsilon="2.17568" reduction="1.0" />
+  <Vdw class="5001" sigma="0.3405" epsilon="0.46024" reduction="1.0" />
+  <Vdw class="5002" sigma="0.2655" epsilon="0.056484" reduction="0.910" />
+ </AmoebaVdwForce>
+ <AmoebaMultipoleForce  direct11Scale="0.0"  direct12Scale="1.0"  direct13Scale="1.0"  direct14Scale="1.0"  mpole12Scale="0.0"  mpole13Scale="0.0"  mpole14Scale="0.4"  mpole15Scale="0.8"  mutual11Scale="1.0"  mutual12Scale="1.0"  mutual13Scale="1.0"  mutual14Scale="1.0"  polar12Scale="0.0"  polar13Scale="0.0"  polar14Intra="0.5"  polar14Scale="1.0"  polar15Scale="1.0"  >
+  <Multipole type="5301" kz="0" kx="0" c0="0.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5302" kz="0" kx="0" c0="0.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5303" kz="0" kx="0" c0="0.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5304" kz="0" kx="0" c0="0.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5305" kz="0" kx="0" c0="0.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5101" kz="0" kx="0" c0="1.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5102" kz="0" kx="0" c0="1.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5103" kz="0" kx="0" c0="1.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5104" kz="0" kx="0" c0="1.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5105" kz="0" kx="0" c0="1.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5106" kz="0" kx="0" c0="2.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5107" kz="0" kx="0" c0="2.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5108" kz="0" kx="0" c0="2.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5201" kz="0" kx="0" c0="-1.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5202" kz="0" kx="0" c0="-1.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5203" kz="0" kx="0" c0="-1.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5204" kz="0" kx="0" c0="-1.00000" d1="0.0" d2="0.0" d3="0.0" q11="0.0" q21="0.0" q22="0.0" q31="0.0" q32="0.0" q33="0.0"  />
+  <Multipole type="5001" kz="5002" kx="-5002" c0="-0.51966" d1="0.0" d2="0.0" d3="0.00755612136146" q11="0.000354030721139" q21="0.0" q22="-0.000390257077096" q31="0.0" q32="0.0" q33="3.62263559571e-05"  />
+  <Multipole type="5002" kz="5001" kx="5002" c0="0.25983" d1="-0.00204209484795" d2="0.0" d3="-0.00307875299958" q11="-3.42848248983e-05" q21="0.0" q22="-0.000100240875193" q31="-1.89485963908e-06" q32="0.0" q33="0.000134525700091"  />
+  <Polarize type="5301" polarizability="0.000205" thole="0.3900" />
+  <Polarize type="5302" polarizability="0.000395" thole="0.3900" />
+  <Polarize type="5303" polarizability="0.00164" thole="0.3900" />
+  <Polarize type="5304" polarizability="0.00248" thole="0.3900" />
+  <Polarize type="5305" polarizability="0.00404" thole="0.3900" />
+  <Polarize type="5101" polarizability="2.8e-05" thole="0.3900" />
+  <Polarize type="5102" polarizability="0.00012" thole="0.3900" />
+  <Polarize type="5103" polarizability="0.00078" thole="0.3900" />
+  <Polarize type="5104" polarizability="0.00135" thole="0.3900" />
+  <Polarize type="5105" polarizability="0.00226" thole="0.3900" />
+  <Polarize type="5106" polarizability="8e-05" thole="0.0952" />
+  <Polarize type="5107" polarizability="0.00055" thole="0.1585" />
+  <Polarize type="5108" polarizability="0.00026" thole="0.2096" />
+  <Polarize type="5201" polarizability="0.00135" thole="0.3900" />
+  <Polarize type="5202" polarizability="0.004" thole="0.3900" />
+  <Polarize type="5203" polarizability="0.00565" thole="0.3900" />
+  <Polarize type="5204" polarizability="0.00725" thole="0.3900" />
+  <Polarize type="5001" polarizability="0.000837" thole="0.3900" pgrp1="5002" />
+  <Polarize type="5002" polarizability="0.000496" thole="0.3900" pgrp1="5001" />
+ </AmoebaMultipoleForce>
+ <AmoebaUreyBradleyForce cubic="0.0" quartic="0.0"  >
+  <UreyBradley class1="5002" class2="5001" class3="5002" k="-3179.84" d="0.15326" />
+ </AmoebaUreyBradleyForce>
+</ForceField>
