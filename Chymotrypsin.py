@@ -9,6 +9,7 @@ import simtk.openmm as mm
 from simtk import unit
 from sys import stdout
 from datetime import datetime
+import smtplib
 
 T_Start=300*unit.kelvin
 T_End=300*unit.kelvin
@@ -24,14 +25,14 @@ print ('Loading Force Field')
 forcefield = app.ForceField('amoebaSmallOrg.xml','amoebaSmall.xml')
 
 print ('Loading PDB')
-pdb = app.PDBFile('SpermidineBox.pdb')
+pdb = app.PDBFile('Spermidine.pdb')
 
 
 print ('setting up system')
 system = forcefield.createSystem(pdb.topology,
-    nonbondedMethod=app.NoCutoff, constraints=None, rigidWater=False)
-integrator = mm.LangevinIntegrator(T_Start, 1.0/unit.picoseconds, 
-    0.5*unit.femtoseconds)
+                                 nonbondedMethod=app.NoCutoff, constraints=None, rigidWater=False)
+integrator = mm.LangevinIntegrator(T_Start, 1.0/unit.picoseconds,
+                                   0.5*unit.femtoseconds)
 #system.addForce(mm.MonteCarloBarostat(1*unit.atmospheres, 200*unit.kelvin))
 
 print ('Setting Platform to CUDA')
@@ -40,7 +41,7 @@ properties = {'CudaPrecision': 'mixed'}
 
 print ('Creating Simulation')
 simulation = app.Simulation(pdb.topology, system, integrator, platform,
-    properties)
+                            properties)
 simulation.context.setPositions(pdb.positions)
 
 print('Minimizing...')
@@ -52,23 +53,34 @@ simulation.context.setVelocitiesToTemperature(T_Start)
 print('Equilibrating... Be patient, its a virtue')
 simulation.step(1000)
 #Output PDB file
-app.PDBFile.writeFile(simulation.topology, pdb.positions, open('SpermidineMove.pdb', 'w'))
+app.PDBFile.writeFile(simulation.topology, pdb.positions, open('Spermidine.pdb', 'w'))
 
 #Output DCD file name
-simulation.reporters.append(app.DCDReporter('SpermidineMove.dcd', output_steps))
+simulation.reporters.append(app.DCDReporter('Spermidine.dcd', output_steps))
 #simulation.reporters.append(app.PDBReporter('waterSphere_trajectory.pdb', output_steps))
-simulation.reporters.append(app.StateDataReporter('SpermidineMove.log', output_steps, step=True,
-    time=True, potentialEnergy=True, kineticEnergy=True, totalEnergy=True, 
-    temperature=True, volume=True, density=True, progress=True, 
-    remainingTime=True, speed=True, totalSteps=((T_Steps+1)*sim_steps), separator='\t'))
+simulation.reporters.append(app.StateDataReporter('Spermidine.log', output_steps, step=True,
+                                                  time=True, potentialEnergy=True, kineticEnergy=True, totalEnergy=True,
+                                                  temperature=True, volume=True, density=True, progress=True,
+                                                  remainingTime=True, speed=True, totalSteps=((T_Steps+1)*sim_steps), separator='\t'))
 
 print('Running Temperature Variation...')
-                  
+progress_Interval = int(sim_steps/4)   #sim_Steps divided by the number of emails for total simulation
 for i in range(T_Steps):
     print("Set Temp: ", T_Start+i*T_Delta)
     integrator.setTemperature(T_Start+i*T_Delta)
-    simulation.step(sim_steps)
+    fromaddr = 'molecularmodelingtddft@gmail.com'
+    toaddr = 'molecularmodelingtddft@gmail.com'
+    username = 'molecularmodelingtddft'
+    password = 'NewtonF=ma'
+for x in range(0, 4): #Must be in range of total email you want
+    simulation.step(progress_Interval)
+    server = smtplib.SMTP('smtp.gmail.com:587')
+    server.starttls()
+    server.login(username, password)
+    percentage = ((x + 1) * 25) # percentage (x+1) * the intervals you want your emails at
+    msg = (("Your Trypsin simulation is %s percent Comeplete") % percentage) # the message the emials sends
+    server.sendmail(fromaddr, toaddr, msg)
+    server.quit()
 print('Done!')
 End=datetime.now()
 print ('%s %s/%s/%s %s:%s:%s' %("Simulation ended at", End.month, End.day, End.year, End.hour, End.minute, End.second))
-
